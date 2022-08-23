@@ -83,9 +83,9 @@ int main() {
     }
 
 
-    // build and compile our shader program
+    // build and compile our 3_shader program
     // ------------------------------------
-    // vertex shader
+    // vertex 3_shader
     /// 首先要做的是创建一个着色器对象，注意还是用ID来引用的
     /// GL_VERTEX_SHADER 着色器类型
     unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -94,7 +94,7 @@ int main() {
     glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
     /// 编译着色器
     glCompileShader(vertexShader);
-    // check for shader compile errors
+    // check for 3_shader compile errors
     int success;
     char infoLog[512];
     /// 检查是否编译成功
@@ -104,13 +104,13 @@ int main() {
         glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
         std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
     }
-    // fragment shader
+    // fragment 3_shader
     /// 创建着色器对象 GL_FRAGMENT_SHADER表示片段着色器
     unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     ///其他流程与顶点着色器类似
     glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
     glCompileShader(fragmentShader);
-    // check for shader compile errors
+    // check for 3_shader compile errors
     glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
     if (!success) {
         glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
